@@ -54,9 +54,9 @@ class blocks:
 #line
 class line_tile(blocks):
 
-    def line(self):
+    def draw(self):
         self.color = (90,120,255)#blueish
-        self.name = 1
+        self.name = "Line"
         if self.state == 0 or self.state == 2:
             pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
             pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
@@ -67,6 +67,134 @@ class line_tile(blocks):
             pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
             pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y,45,45])
             pygame.draw.rect(gameDisplay, self.color, [self.x+150, self.y,45,45])
+
+#Reverse L
+class reverse_l_tile(blocks):
+
+    def draw(self):
+        self.color = (0,0,255)
+        self.name = "Reverse L"
+        if self.state == 0:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+100,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x-50, self.y+100,45,45])
+        if self.state == 1:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y-50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y,45,45])
+        if self.state == 2:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+100,45,45])
+        if self.state == 3:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y+50,45,45])
+
+#L
+class l_tile(blocks):
+    
+    def draw(self):
+        self.color = (255,165,0)
+        self.name = "L"
+        if self.state == 0:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+100,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+100,45,45])
+        if self.state == 1:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y,45,45])
+        if self.state == 2:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x-50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+100,45,45])
+        if self.state == 3:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y-50,45,45])
+
+#Reverse Z
+class reverse_z_tile(blocks):
+
+    def draw(self):
+        self.color = (0,255,0)
+        self.name = "Reverse Z"
+        if self.state == 0 or self.state == 2:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x-50, self.y+50,45,45])
+        if self.state == 1 or self.state == 3:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y-50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+50,45,45])
+#Z
+class z_tile(blocks):
+    
+    def draw(self):
+        self.color = (255,0,0)
+        self.name = "Z"
+        if self.state == 0 or self.state == 2:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y+50,45,45])
+        if self.state == 1 or self.state == 3:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y-50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x-50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x-50, self.y+50,45,45])
+
+            
+#Square
+class square_tile(blocks):
+
+    def draw(self):
+        self.color = (255,255,0)
+        self.name = "Square"
+        if self.state == 0 or self.state == 1 or self.state == 2 or self.state == 3:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+50,45,45])
+            
+#T
+class t_tile(blocks):
+    
+    def draw(self):
+        self.color = (75,0,130)
+        self.name = "T"
+        if self.state == 0:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y,45,45])
+        if self.state == 1:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y-50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+50,45,45])
+        if self.state == 2:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x-50, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+50,45,45])
+        if self.state == 3:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+100,45,45])
+            
 
 
 #key_check function
@@ -85,7 +213,22 @@ def key_check(event, shape):
 
 #spawns a new shape
 def spawn_new_shape():
-    shape = line_tile()
+    picker = random.randint(0,6)
+    if picker == 0:
+        shape = line_tile()
+    elif picker == 1:
+        shape = reverse_l_tile()
+    elif picker == 2:
+        shape = l_tile()
+    elif picker == 3:
+        shape = reverse_z_tile()
+    elif picker == 4:
+        shape = z_tile()
+    elif picker == 5:
+        shape = square_tile()
+    else:
+        shape = t_tile()
+
     return shape
 
 #Saves the state of locked objects in a dict - BOARDDICT
@@ -113,12 +256,12 @@ def lock_shape(shape):
     if shape.lock == 1:
         board_save(shape)
         shape = spawn_new_shape()
-
+        
     return(shape)
     
 #Run Game Loop
 def game_logic_loop():
-    shape = line_tile()
+    shape = spawn_new_shape()
     #when false is returned, return score, time
     while True:
         for event in pygame.event.get():
@@ -126,8 +269,9 @@ def game_logic_loop():
                 pygame.quit()
                 quit()
                 
-        boarder_maker()    
-        shape.line()
+        boarder_maker()
+        #board_printer()
+        shape.draw()
         pygame.display.update()
         key_check(event, shape)
         shape.time_fall()
