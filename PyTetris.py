@@ -261,6 +261,7 @@ def lock_shape(shape):
     
 #Run Game Loop
 def game_logic_loop():
+    #need 1 piece to start the game - Otherwise everything gets weird
     shape = spawn_new_shape()
     #when false is returned, return score, time
     while True:
