@@ -14,12 +14,14 @@ class blocks:
     def __init__(self):
         self.x = 250
         self.y = 2
+        self.state = 0
+        self.lock = 0
 
     def time_fall(self):
         gameDisplay.fill(BACKFILL)
-        self.fall_y = 10
+        self.fall_y = 2
         self.y += self.fall_y
-        if self.y>755: self.y = 755 #this is where save state would be added
+        if self.y>755: self.y = 755
         
     def move_left(self):
         gameDisplay.fill(BACKFILL)
@@ -34,8 +36,16 @@ class blocks:
         if self.x>500: self.x = 500
 
     def rotate(self):
-        pass
+        gameDisplay.fill(BACKFILL)
+        self.state += 1
+        if self.state>3: self.state = 0
 
+    def rapid_down(self):
+        gameDisplay.fill(BACKFILL)
+        self.fall_y = 10
+        self.y += self.fall_y
+        if self.y>755: self.y = 755
+        
     def place(self):
         pass
         
@@ -44,10 +54,16 @@ class line_tile(blocks):
 
     def line(self):
         self.color = (90,120,255)#blueish
-        pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
-        pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
-        pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+100,45,45])
-        pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+150,45,45])
+        if self.state == 0 or self.state == 2:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+50,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+100,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y+150,45,45])
+        else:
+            pygame.draw.rect(gameDisplay, self.color, [self.x, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+50, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+100, self.y,45,45])
+            pygame.draw.rect(gameDisplay, self.color, [self.x+150, self.y,45,45])
 
 
 #key_check function
@@ -57,10 +73,12 @@ def key_check(event, shape):
             shape.move_left()
         if event.key == pygame.K_RIGHT:
             shape.move_right()
+        if event.key == pygame.K_DOWN:
+            shape.rapid_down()
         if event.key == pygame.K_SPACE:
             print("Space Bar")
         if event.key == pygame.K_UP:
-            print("Up")
+            shape.rotate()
         
 #Run Game Loop
 def game_logic_loop():
