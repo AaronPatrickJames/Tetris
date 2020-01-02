@@ -8,6 +8,7 @@ gameDisplay = pygame.display.set_mode((600,800))
 pygame.display.set_caption("Tetris")
 BOARDDICT = {}
 clock = pygame.time.Clock()
+
 BACKFILL = (0,0,0)
 
 #Each Block
@@ -16,6 +17,8 @@ class blocks:
     def __init__(self):
         self.x = 250
         self.y = 2
+        self.x_max = 0
+        self.y_max = 0
         self.state = 0
         self.lock = 0
 
@@ -49,7 +52,9 @@ class blocks:
         if self.y>753: self.y = 753
         
     def place(self):
-        pass
+        gameDisplay.fill(BACKFILL)
+        self.y += 753
+        if self.y>=753: self.y=753
         
 #line
 class line_tile(blocks):
@@ -207,7 +212,7 @@ def key_check(event, shape):
         if event.key == pygame.K_DOWN:
             shape.rapid_down()
         if event.key == pygame.K_SPACE:
-            print("Space Bar")
+            shape.place()
         if event.key == pygame.K_UP:
             shape.rotate()
 
